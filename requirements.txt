@@ -1,0 +1,18 @@
+Ubuntu ortamı için 
+
+sudo apt-get update
+sudo apt-get install mininet iperf -y
+
+Makine Öğrenmesi kısmı için
+
+matplotlib      # Topoloji ve sonuç grafiklerini çizmek için
+networkx        # Ağ grafiği yapısını kurmak için
+
+pandas          # CSV dosyalarını okumak ve tablo işlemleri için
+numpy           # Matematiksel ve matris işlemleri için
+scipy           # İstatistiksel analizler ve hesaplamalar için
+seaborn         # Korelasyon ısı haritaları (Heatmap) için
+
+scikit-learn    # Regresyon modelleri eğitimi için
+
+notebook        # Jupyter Notebook arayüzünü çalıştırmak için
