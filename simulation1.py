@@ -8,7 +8,8 @@ import csv
 import time
 import random
 import statistics
-
+import matplotlib.pyplot as plt
+import networkx as nx
 class NetworkTopo(Topo):
     def build(self, bw, delay, loss, queue):
         h1 = self.addHost('h1')
@@ -24,6 +25,14 @@ class NetworkTopo(Topo):
             use_htb=True
         )
 
+def visualize_topology():
+    G = nx.Graph()
+    G.add_edges_from([('h1', 's1'), ('s1', 'h2')])
+    pos = {'h1': (0, 0), 's1': (1, 0), 'h2': (2, 0)}
+    plt.figure(figsize=(6, 2))
+    nx.draw(G, pos, with_labels=True, node_size=2000)
+    plt.title("Mininet Topology")
+    plt.show()
 
 def run_experiment(bw, delay, loss, queue):
     topo = NetworkTopo(bw, delay, loss, queue)
@@ -76,6 +85,8 @@ def main():
     bw_values = [5, 10, 20, 50]
     loss_values = [0, 1, 2, 5]
     queue_values = [50, 100, 200]
+    
+    visualize_topology()
 
     filename = "network_dataset.csv"
     with open(filename, "w", newline="") as f:
